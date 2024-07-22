@@ -16,7 +16,7 @@ func main() {
 	
 }
 
-func Use_Pointer(s *string) { // Here s is a pointer of type string
+func Use_Pointer(s *string) { // Here s is a pointer to a variable of type string
 
 	log.Println("Value of s is: ",s)
 	var desert string
