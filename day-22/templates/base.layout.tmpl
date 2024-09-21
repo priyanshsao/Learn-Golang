@@ -1,0 +1,26 @@
+{{define "base"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{block "title" .}} {{end}}</title>
+        <!-- Bootstrap CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        {{block "css" .}}
+
+        {{end}}
+        <link rel="icon" href="data:,">
+    </head>
+    <body>
+    {{block "content" .}}
+
+    {{end}}
+
+
+    {{block "js" .}}
+        <!-- Additional page-specific JavaScript can be added here -->
+    {{end}}
+    </body>
+    </html>
+{{end}}
