@@ -1,0 +1,76 @@
+{{template "base" .}}
+
+{{define "title"}}About{{end}}
+
+{{define "css"}}
+    <style>
+        body {
+            background-image: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            text-align: center;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            transform: scale(0.9);
+            transition: transform 0.5s ease;
+        }
+        .container:hover {
+            transform: scale(1);
+        }
+        h1 {
+            color: #007bff;
+            animation: fadeInDown 2s ease-out;
+        }
+        p {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            animation: fadeInUp 2s ease-out;
+        }
+        .about-content {
+            margin-top: 2rem;
+            text-align: left;
+            animation: fadeIn 2.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+{{end}}
+
+{{define "content"}}
+    <div class="container">
+        <h1>About Us</h1>
+        <p>{{index .StringMap "test"}}Learn more about who we are and what we do.</p>
+        <div class="about-content">
+            <p>Welcome to our website! We are a team of passionate developers who love creating beautiful and functional web experiences.</p>
+            <p>Our goal is to make the web a better place by building sites that are not only visually appealing but also easy to use and accessible to everyone.</p>
+            <p>Thank you for visiting our site. We hope you enjoy your stay!</p>
+            <p>
+                {{if ne (index .StringMap "remote_ip") ""}}
+                your remote IP Address is: {{index .StringMap "remote_ip"}}
+                {{else}}
+                I dont know your IP Address yet. Visit the <a href="/">Home page</a> so i can set it.
+                {{end}}
+            </p>
+        </div>
+    </div>
+{{end}}
+
